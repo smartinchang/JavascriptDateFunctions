@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vn">
+	<head>
+		<meta charset="utf-8">
+		<title>Các hàm xử lý ngày của Javascript</title>
+		<script>
+			// Cách lấy ngày hiện tại
+			date1 = new Date();
+			// Cách hiển thị ngày theo dạng chuỗi
+			date1_string = date1.toLocaleDateString();
+			console.log("Ngày hiện tại là " + date1_string);
+			// Cách lấy thứ của ngày
+			day_array = ["chủ nhật", "thứ hai", "thứ ba", "thứ tư", "thứ năm", "thứ sáu", "thứ bảy"];
+			console.log("Ngày " + date1_string + " là " + day_array[date1.getDay()]);
+			// Cách thức khai báo ngày bằng chuỗi
+			date2 = new Date("2022/07/06");
+			console.log("Ngày thứ nhất là " + date2.toLocaleDateString());
+			// Cách cộng ngày
+			day_counts = 1;
+			ms = Date.parse(date2) + 86400000 * day_counts;
+			date3 = new Date(ms);
+			console.log("Ngày thứ hai cách ngày thứ nhất " + day_counts + " ngày là " + date3.toLocaleDateString());
+			// Cách thức tính khoảng cách giữa 2 ngày
+			var diff = Math.floor((date3 - date2) / 86400000);
+			console.log("Khoảng cách của hai ngày thứ nhất và thứ hai là: " + diff + " ngày");
+			// So sánh hai ngày
+			if (diff < 0) {
+				console.log("Ngày thứ hai nhỏ hơn ngày thứ nhất")
+			} else if (diff == 0) {
+				console.log("Ngày thứ hai bằng ngày thứ nhất")
+			} else {
+				console.log("Ngày thứ hai lớn hơn ngày thứ nhất")
+			}
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
