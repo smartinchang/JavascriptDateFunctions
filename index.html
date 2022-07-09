@@ -31,6 +31,52 @@
 			} else {
 				console.log("Ngày thứ hai lớn hơn ngày thứ nhất")
 			}
+			console.log("Sử dụng hàm:");
+			date4 = new Date("2022/7/8");
+			date5 = new Date("2022/7/9");
+			console.log(day_diff(date4, date5));
+			date6 = date_add(date4, -1);
+			console.log(date6);
+			console.log(date_EndOfMonth(2, 2020));
+			function day_diff(date1, date2) {
+				// Hàm tính khoảng cách giữa 2 ngày
+				return Math.floor((date2 - date1) / 86400000);
+			}
+			function date_add(date, days) {
+				// Hàm tính ngày khi được cộng thêm số ngày
+				ms = Date.parse(date) + 86400000 * days;
+				result = new Date(ms);
+				return result;
+			}
+			function date_EndOfMonth(month, year) {
+				// Hàm xác định ngày cuối của tháng
+				switch (month) {
+					case 1:
+					case 3:
+					case 5:
+					case 7:
+					case 8:
+					case 10:
+					case 12:
+						day = 31;
+					break;
+					case 4:
+					case 6:
+					case 9:
+					case 11:
+						day = 30;
+					break;
+					case 2:
+						if ((year % 4) == 0) {
+							day = 29;
+						} else {
+							day = 28;
+						}
+					break;
+				}
+				date = new Date(year + "/" + month + "/" + day);
+				return date;
+			}
 		</script>
 	</head>
 	<body>
